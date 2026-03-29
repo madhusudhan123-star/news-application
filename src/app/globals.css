@@ -1,0 +1,494 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+
+
+/* styles for print */
+
+@media print {
+  body * {
+      visibility: hidden;
+  }
+
+  #print-content,
+  #print-content * {
+      visibility: visible;
+  }
+
+  #print-content {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+  }
+
+  .hidden-while-print * {
+      visibility: hidden !important;
+  }
+
+  .news-heading {
+      font-size: 38px;
+  }
+}
+
+.input:focus {
+  outline: 0;
+  border: 1px #000 solid;
+}
+
+.textarea:focus {
+  outline: 0;
+  border: 1px #000 solid;
+}
+
+#u_0_0_Ey {
+  width: 100% !important;
+}
+
+.myCommentBox * {
+  width: 100% !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 300;
+}
+
+.fbCommentBox::-webkit-scrollbar {
+  width: 8px;
+  /* Width of the scrollbar */
+}
+
+.fbCommentBox::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+
+.fbCommentBox::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Thumb color */
+}
+
+.menu a:focus {
+  background-color: transparent !important;
+  color: red !important;
+}
+
+.commentTab .react-tabs__tab--selected {
+  border-radius: 0 !important;
+  color: #000 !important;
+  border: none !important;
+}
+
+.react-tabs__tab--selected {
+  border-radius: 0 !important;
+  color: #D91C0B !important;
+  border: none !important;
+}
+
+.tab-heading-1 {
+  border: none !important;
+  border-left: 1px #000 solid !important;
+  border-right: 1px #000 solid !important;
+}
+
+.tab-heading-2 {
+  border: none !important;
+  border-right: 1px #000 solid !important;
+}
+
+.tab-heading-3 {
+  border: none !important;
+}
+
+.swiper-button-prev {
+  color: #fff !important;
+}
+
+.swiper-button-prev::after {
+  font-size: 30px !important;
+}
+
+.swiper-button-next {
+  color: #fff !important;
+}
+
+.swiper-button-next::after {
+  font-size: 30px !important;
+}
+
+.videoSlider img {
+  width: 100%;
+}
+
+.featuredItems a .flex{
+  padding: 14px 0 !important;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 640px) {
+  .featuredTripleItem .col-span-2 img {
+      min-height: 225px;
+      max-height: 225px;
+  }
+
+  .sports .sportBigCard img {
+      min-height: 240px;
+      max-height: 240px;
+  }
+
+  .sports .sportSmallCard img {
+      min-height: 115px;
+      max-height: 115px;
+  }
+
+  .techCards img {
+      min-height: 230px;
+      max-height: 230px;
+  }
+
+  .wholeCountrySideCard img {
+      min-height: 85px;
+      max-height: 85px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .featuredDoubleItem img {
+      min-height: 175px;
+      max-height: 175px;
+  }
+
+  .sports .sportBigCard img {
+      min-height: 280px;
+      max-height: 280px;
+  }
+
+  .sports .sportSmallCard img {
+      min-height: 185px;
+      max-height: 185px;
+  }
+
+  .entertainmentBigCard img {
+      min-height: 300px;
+      max-height: 300px;
+  }
+
+  .techCards img {
+      min-height: 180px;
+      max-height: 180px;
+  }
+
+  .healthAndLifestyle img {
+      min-height: 220px;
+      max-height: 220px;
+  }
+
+  .religionAndEducation img {
+      min-height: 180px;
+      max-height: 180px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .featuredDoubleItem img {
+      min-height: 130px;
+      max-height: 130px;
+  }
+
+  .sports .sportBigCard img {
+      min-height: 260px;
+      max-height: 260px;
+  }
+
+  .sports .sportSmallCard img {
+      min-height: 175px;
+      max-height: 175px;
+  }
+
+  .entertainmentBigCard img {
+      min-height: 260px;
+      max-height: 260px;
+  }
+
+  .economyBigCard img {
+      min-height: 230px;
+      max-height: 230px;
+  }
+
+  .techCards img {
+      min-height: 245px;
+      max-height: 245px;
+  }
+
+  .healthAndLifestyle img {
+      min-height: 220px;
+      max-height: 220px;
+  }
+
+  .religionAndEducation img {
+      min-height: 220px;
+      max-height: 220px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .featuredDoubleItem img {
+      min-height: 120px;
+      max-height: 120px;
+  }
+
+  .sports .sportBigCard img {
+      min-height: 200px;
+      max-height: 200px;
+  }
+
+  .sports .sportSmallCard img {
+      min-height: 160px;
+      max-height: 160px;
+  }
+
+  .entertainmentBigCard img {
+      min-height: 190px;
+      max-height: 190px;
+  }
+
+  .economyBigCard img {
+      min-height: 190px;
+      max-height: 190px;
+  }
+
+  .techCards img {
+      min-height: 145px;
+      max-height: 145px;
+  }
+
+  .healthAndLifestyle img {
+      min-height: 200px;
+      max-height: 200px;
+  }
+
+  .religionAndEducation img {
+      min-height: 280px;
+      max-height: 280px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1280px) {
+  .featuredDoubleItem img {
+      min-height: 175px;
+      max-height: 175px;
+  }
+
+  .sports .sportBigCard img {
+      min-height: 265px;
+      max-height: 265px;
+  }
+
+  .sports .sportSmallCard img {
+      min-height: 200px;
+      max-height: 200px;
+  }
+
+  .economyBigCard img {
+      min-height: 220px;
+      max-height: 220px;
+  }
+
+  .entertainmentBigCard img {
+      min-height: 250px;
+      max-height: 250px;
+  }
+
+  .techCards img {
+      min-height: 190px;
+      max-height: 190px;
+  }
+
+  .nationalSmallCardItems img {
+      min-height: 93px;
+      max-height: 93px;
+  }
+
+  .healthAndLifestyle img {
+      min-height: 255px;
+      max-height: 255px;
+  }
+
+  .religionAndEducation img {
+      min-height: 180px;
+      max-height: 180px;
+  }
+
+  .wholeCountrySideCard img {
+      min-height: 75px;
+      max-height: 75px;
+  }
+}
+
+
+
+
+
+@media (max-width: 640px) {
+  .swiper-button-prev {
+      display: none !important;
+  }
+
+  .commentTab .swiper-button-next {
+      display: none !important;
+  }
+
+  .commentTab .tab-heading-1 {
+      border: none !important;
+      border-bottom: 1px #000 solid !important;
+  }
+
+  .commentTab .tab-heading-2 {
+      border: none !important;
+  }
+
+  .commentTab .tab-heading-3 {
+      border: none !important;
+      border-top: 1px #000 solid !important;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+  
+}
+
+@layer utilities {
+
+  .shadow-card {
+    @apply shadow-md;
+  }
+  .h1-bold {
+    @apply text-[30px] font-bold leading-[42px] tracking-tighter;
+  }
+
+  .h2-bold {
+    @apply text-[24px] font-bold leading-[31.2px];
+  }
+
+  .h2-semibold {
+    @apply text-[24px] font-semibold leading-[31.2px];
+  }
+
+  .h3-bold {
+    @apply text-[20px] font-bold leading-[26px];
+  }
+
+  .h3-semibold {
+    @apply text-[20px] font-semibold leading-[24.8px];
+  }
+
+  .base-medium {
+    @apply text-[18px] font-medium leading-[25.2px];
+  }
+
+  .base-semibold {
+    @apply text-[18px] font-semibold leading-[25.2px];
+  }
+
+  .base-bold {
+    @apply text-[18px] font-bold leading-[140%];
+  }
+
+  .paragraph-regular {
+    @apply text-[16px] font-normal leading-[22.4px];
+  }
+
+  .paragraph-medium {
+    @apply text-[16px] font-medium leading-[22.4px];
+  }
+
+  .paragraph-semibold {
+    @apply text-[16px] font-semibold leading-[20.8px];
+  }
+
+  .body-regular {
+    @apply text-[14px] font-normal leading-[19.6px];
+  }
+
+  .body-medium {
+    @apply text-[14px] font-medium leading-[18.2px];
+  }
+
+  .body-semibold {
+    @apply text-[14px] font-semibold leading-[18.2px];
+  }
+
+  .body-bold {
+    @apply text-[14px] font-bold leading-[18.2px];
+  }
+
+  .small-regular {
+    @apply text-[12px] font-normal leading-[15.6px];
+  }
+
+  .small-medium {
+    @apply text-[12px] font-medium leading-[15.6px];
+  }
+
+  .small-semibold {
+    @apply text-[12px] font-semibold leading-[15.6px];
+  }
+
+  .subtle-medium {
+    @apply text-[10px] font-medium leading-[13px] !important;
+  }
+
+  .shadow-light100_dark100 {
+    @apply shadow-light-100 ;
+  }
+
+  .shadow-light100_darknone {
+    @apply shadow-light-100 ;
+  }
+
+  .card-wrapper {
+    @apply bg-light-900 dark:dark-gradient shadow-light-100 dark:shadow-dark-100;
+  }
+
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+.navbar{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.ql-editor {
+  font-size: 20px; /* Adjust editor content font size */
+}

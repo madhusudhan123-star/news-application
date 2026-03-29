@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id                    Int       @id @default(autoincrement())
+  name                  String
+  email                 String    @unique
+  created_at            DateTime  @default(now())
+  display_name          String?
+  forget_password_token String?
+  password              String
+  updated_at            DateTime  @updatedAt
+  role                  Role      @default(USER)
+  accounts              Account[]
+  news_created          News[]    @relation("NewsCreatedBy")
+  news_updated          News[]    @relation("NewsUpdatedBy")
+  sessions              Session[]
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  userId       Int
+  expires      DateTime
+  sessionToken String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Account {
+  id                Int     @id @default(autoincrement())
+  userId            Int
+  provider          String
+  providerAccountId String  @unique
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Category {
+  id         Int      @id @default(autoincrement())
+  title      String
+  slug       String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  news       News[]   @relation("CategoryToNews")
+}
+
+model News {
+  id               Int               @id @default(autoincrement())
+  title            String
+  description      String?
+  highlight_text   String?
+  reporter_name    String?
+  publish_status   PublishStatus     @default(DRAFT)
+  tag              String?
+  featured_image   String?
+  meta_title       String?
+  meta_description String?
+  meta_image       String?
+  focus_keyword    String?
+  video_url        String?
+  created_at       DateTime          @default(now())
+  updated_at       DateTime          @updatedAt
+  created_by_id    Int
+  updated_by_id    Int?
+  featuredSections FeaturedSection[]
+  created_by       User              @relation("NewsCreatedBy", fields: [created_by_id], references: [id])
+  updated_by       User?             @relation("NewsUpdatedBy", fields: [updated_by_id], references: [id])
+  categories       Category[]        @relation("CategoryToNews")
+}
+
+model FeaturedSection {
+  id         Int      @id @default(autoincrement())
+  title      String   @unique
+  news_id    Int?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  news       News?    @relation(fields: [news_id], references: [id])
+}
+
+model VideoStory {
+  id         Int      @id @default(autoincrement())
+  title      String   @unique
+  video_url  String?  @db.VarChar(255)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model ExternalNews {
+  id          Int       @id @default(autoincrement())
+  article_id  String    @unique
+  title       String
+  description String?   @db.Text
+  link        String
+  source_name String?
+  image_url   String?
+  pub_date    DateTime?
+  category    String
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+}
+
+enum Role {
+  ADMIN
+  USER
+  EDITOR
+}
+
+enum PublishStatus {
+  PUBLISHED
+  DRAFT
+}
