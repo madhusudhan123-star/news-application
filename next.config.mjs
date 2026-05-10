@@ -23,20 +23,19 @@ const nextConfig = {
       },
       async headers() {
         return [
-          // Cache only /api/public/*
           {
             source: "/api/public/:path*",
             headers: process.env.NODE_ENV === "development"
               ? [
                   {
                     key: "Cache-Control",
-                    value: "no-store", // Disable caching in development
+                    value: "no-store",
                   },
                 ]
               : [
                   {
                     key: "Cache-Control",
-                    value: "s-maxage=3600, stale-while-revalidate=59", // Cache for production
+                    value: "s-maxage=3600, stale-while-revalidate=59",
                   },
                 ],
           },
